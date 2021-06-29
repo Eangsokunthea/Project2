@@ -51,17 +51,6 @@ Route::get('/active-category-product/{category_product_id}','CategoryProduct@act
 Route::post('/save-category-product','CategoryProduct@save_category_product');
 Route::post('/update-category-product/{category_product_id}','CategoryProduct@update_category_product');
 
-//Send Mail 
-Route::get('/send-mail','HomeController@send_mail');
-
-//Login facebook
-Route::get('/login-facebook','AdminController@login_facebook');
-Route::get('/admin/callback','AdminController@callback_facebook');
-
-//Login google
-Route::get('/login-google','AdminController@login_google');
-Route::get('/google/callback','AdminController@callback_google');
-
 
 //Brand Product
 Route::get('/add-brand-product','BrandProduct@add_brand_product');
@@ -91,32 +80,6 @@ Route::post('/update-brand-product/{brand_product_id}','BrandProduct@update_bran
 	
 // });
 
-Route::get('users',
-		[
-			'uses'=>'UserController@index',
-			'as'=> 'Users',
-			'middleware'=> 'roles'
-		]);
-Route::get('add-users','UserController@add_users');
-Route::post('store-users','UserController@store_users');
-Route::post('assign-roles','UserController@assign_roles');
-
-
-
-// Route::get('/add-category-product','CategoryProduct@add_category_product');
-// Route::get('/edit-category-product/{category_product_id}','CategoryProduct@edit_category_product');
-// Route::get('/delete-category-product/{category_product_id}','CategoryProduct@delete_category_product');
-// Route::get('/all-category-product','CategoryProduct@all_category_product');
-
-
-//Coupon
-Route::post('/check-coupon','CartController@check_coupon');
-
-Route::get('/unset-coupon','CouponController@unset_coupon');
-Route::get('/insert-coupon','CouponController@insert_coupon');
-Route::get('/delete-coupon/{coupon_id}','CouponController@delete_coupon');
-Route::get('/list-coupon','CouponController@list_coupon');
-Route::post('/insert-coupon-code','CouponController@insert_coupon_code');
 
 //Cart
 Route::post('/update-cart-quantity','CartController@update_cart_quantity');
@@ -149,27 +112,4 @@ Route::post('/confirm-order','CheckoutController@confirm_order');
 Route::get('/manage-order','CheckoutController@manage_order');
 Route::get('/view-order/{orderId}','CheckoutController@view_order');
 Route::get('/delete-order/{orderId}','CheckoutController@delete_order');
-
-// Route::get('/delete-order/{order_code}','OrderController@order_code');
-// Route::get('/print-order/{checkout_code}','OrderController@print_order');
-// Route::get('/manage-order','OrderController@manage_order');
-// Route::get('/view-order/{order_code}','OrderController@view_order');
-// Route::post('/update-order-qty','OrderController@update_order_qty');
-// Route::post('/update-qty','OrderController@update_qty');
-
-
-//Delivery
-Route::get('/delivery','DeliveryController@delivery');
-Route::post('/select-delivery','DeliveryController@select_delivery');
-Route::post('/insert-delivery','DeliveryController@insert_delivery');
-Route::post('/select-feeship','DeliveryController@select_feeship');
-Route::post('/update-delivery','DeliveryController@update_delivery');
-
-//Banner
-Route::get('/manage-slider','SliderController@manage_slider');
-Route::get('/add-slider','SliderController@add_slider');
-Route::get('/delete-slide/{slide_id}','SliderController@delete_slide');
-Route::post('/insert-slider','SliderController@insert_slider');
-Route::get('/unactive-slide/{slide_id}','SliderController@unactive_slide');
-Route::get('/active-slide/{slide_id}','SliderController@active_slide');
 
